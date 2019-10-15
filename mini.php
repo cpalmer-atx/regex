@@ -1,7 +1,7 @@
 <?php
     /*
         Author: Chad Palmer
-        Course: CS 3378
+        Course: CS-3378-002
         Term:   Fall 2019
 
         This program demonstrates how HTML can be parsed using regex.  For visability,
@@ -11,15 +11,15 @@
 
         ~$ php mini.php
         
-        To The program will parse the uncommented HTML file and output results to 
+        The program will parse the uncommented HTML file and output results to 
         'output.txt' in the same repository.
     */
     
     // Uncomment ONLY 1 of the following 3 filenames, then save the file
     $filename = "bg.html";
-    //$filename = "xc.html"; 
     //$filename = "aq.html";
-
+    //$filename = "mb.html";
+    
     // The selected HTML file is read as a string to $html for parsing
     $handle = fopen($filename, "r");
     $html = fread($handle, filesize($filename));
@@ -27,7 +27,7 @@
 
     // Regular expression variables used to parse $html
     $nameRegex = '/([a-zA-Z]|[[:space:]]|[Dr.])*(?=<\/title>)/';
-    $eduRegex = '/([a-zA-Z]|[[:space:]]|,)*(?=<\/p><\/div>)/';
+    $eduRegex = '/([a-zA-Z]|;|[[:space:]]|,)*(?=<\/p><\/div>)/';
     $researchRegex = '/([a-zA-Z]|[[:space:]]|,|;)*(?=<\/p><\/div>)/';
     $emailRegex = '/[[:space:]]([a-zA-Z]*)@([a-zA-Z]*)\.(com|edu|net)/';
     $webRegex = '/(https:\/\/cs.txstate.edu\/accounts\/profiles\/[a-z0-9]*)/';
